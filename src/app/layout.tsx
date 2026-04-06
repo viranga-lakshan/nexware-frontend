@@ -1,0 +1,7 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { AppProviders } from "@/providers/app-providers";
+const inter = Inter({ subsets: ["latin"] });
+export const metadata: Metadata = { title: "NexWare Distribution Platform", description: "Enterprise electronics distribution and warehouse operations frontend" };
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="en" suppressHydrationWarning><body className={inter.className}><AppProviders>{children}</AppProviders></body></html>; }
