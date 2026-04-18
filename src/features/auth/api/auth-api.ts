@@ -1,0 +1,2 @@
+import { apiClient, unwrap } from "@/services/api-client"; import type { AuthResponse, LoginRequest, RegisterRequest, UserProfile } from "../types";
+export const authApi={login:(payload:LoginRequest)=>unwrap<AuthResponse>(apiClient.post('/auth/login',payload)),register:(payload:RegisterRequest)=>unwrap<AuthResponse>(apiClient.post('/auth/register',payload)),me:()=>unwrap<UserProfile>(apiClient.get('/auth/me')),logout:(refreshToken:string)=>unwrap<void>(apiClient.post('/auth/logout',{refreshToken}))};
