@@ -1,0 +1,2 @@
+import { apiClient, unwrap } from "@/services/api-client"; import type { PageResponse } from "@/types/api"; import type { Warehouse } from "@/types/domain";
+export const warehouseApi={list:(params?:Record<string,unknown>)=>unwrap<PageResponse<Warehouse>>(apiClient.get('/warehouses',{params})),capacity:(id:string)=>unwrap<unknown>(apiClient.get(`/warehouses/${id}/capacity`)),transfer:(payload:unknown)=>unwrap<unknown>(apiClient.post('/warehouses/transfers',payload))};
