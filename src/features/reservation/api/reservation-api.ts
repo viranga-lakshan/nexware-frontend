@@ -1,0 +1,2 @@
+import { apiClient, unwrap } from "@/services/api-client"; import type { PageResponse } from "@/types/api"; import type { Reservation } from "@/types/domain";
+export const reservationApi={list:(params?:Record<string,unknown>)=>unwrap<PageResponse<Reservation>>(apiClient.get('/reservations',{params})),create:(payload:unknown)=>unwrap<Reservation>(apiClient.post('/reservations',payload)),release:(id:string)=>unwrap<Reservation>(apiClient.patch(`/reservations/${id}/release`)),expireDue:()=>unwrap<number>(apiClient.post('/reservations/expire-due'))};
