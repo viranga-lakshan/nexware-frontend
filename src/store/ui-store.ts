@@ -1,0 +1,4 @@
+import { create } from "zustand"; import { persist } from "zustand/middleware";
+type ModalName = "stock-adjustment" | "warehouse-transfer" | "reservation" | "purchase-order" | null;
+interface UiState { sidebarCollapsed: boolean; selectedWarehouseId?: string; activeModal: ModalName; filters: Record<string,string>; setSidebarCollapsed:(value:boolean)=>void; setSelectedWarehouseId:(id?:string)=>void; openModal:(modal:ModalName)=>void; closeModal:()=>void; setFilter:(key:string,value:string)=>void; }
+export const useUiStore = create<UiState>()(persist((set)=>({ sidebarCollapsed:false, activeModal:null, filters:{}, setSidebarCollapsed:(value)=>set({sidebarCollapsed:value}), setSelectedWarehouseId:(id)=>set({selectedWarehouseId:id}), openModal:(modal)=>set({activeModal:modal}), closeModal:()=>set({activeModal:null}), setFilter:(key,value)=>set((state)=>({filters:{...state.filters,[key]:value}})) }),{name:"nexware.ui"}));
