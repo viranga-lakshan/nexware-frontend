@@ -4,6 +4,11 @@
   "buildCommand": "npm run build",
   "installCommand": "npm ci",
   "regions": ["sin1"],
+  "env": {
+    "NEXT_PUBLIC_API_BASE_URL": "https://nexware.me/api/v1",
+    "NEXT_PUBLIC_APP_NAME": "NexWare Distribution Platform",
+    "NEXT_PUBLIC_REALTIME_ENABLED": "false"
+  },
   "headers": [
     {
       "source": "/(.*)",
